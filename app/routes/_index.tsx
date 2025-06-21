@@ -5,7 +5,6 @@ import { Slot } from "../newspaper-design/slot";
 import { Title } from "../newspaper-design/title";
 import { Track } from "../newspaper-design/track";
 import { ScopedStyle } from "../styles/scoped-style";
-import { v } from "../styles/theme";
 
 export const loader = async () => {
   const response = await fetch(
@@ -30,107 +29,136 @@ export default function Home() {
         alignItems: "center",
       }}
     >
-      <div
-        style={{
-          backgroundImage: "url('/extra_clean_paper.webp')",
-          backgroundRepeat: "repeat",
-          width: "93rem",
-          padding: "1rem",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "stretch",
-        }}
-      >
+      <div>
+        <ScopedStyle>
+          {{
+            backgroundImage: "url('/extra_clean_paper.webp')",
+            backgroundRepeat: "repeat",
+            position: "relative",
+            width: "93rem",
+            padding: "1rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "stretch",
+            "@media (width < 95rem)": {
+              width: "48rem",
+              padding: "1rem 0 1rem 1rem",
+            },
+            "@media (width < 50rem)": {
+              width: "24rem",
+            },
+          }}
+        </ScopedStyle>
         <header
           style={{
-            display: "grid",
-            gridTemplateColumns: "1fr auto 1fr",
-            paddingBottom: "1rem",
+            overflow: "hidden",
           }}
         >
           <div
             style={{
-              display: "flex",
-              justifyContent: "start",
-              alignItems: "center",
+              width: "93rem",
+              display: "grid",
+              gridTemplateColumns: "1fr auto 1fr",
+              paddingBottom: "1rem",
             }}
           >
             <div
               style={{
                 display: "flex",
-                flexDirection: "column",
+                justifyContent: "start",
                 alignItems: "center",
-                justifyContent: "center",
-                lineHeight: 1,
-                border: "1px solid black",
-                padding: "0.5rem 1rem",
               }}
             >
-              <p>"All the News</p>
-              <p>That's Fit to Print"</p>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <h1 style={{ fontFamily: "Textura Belgica", fontSize: "4rem" }}>
-              Probably Danny
-            </h1>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "end",
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <ScopedStyle>
-                {{
-                  textAlign: "justify",
-                  maxWidth: "11rem",
-                  textAlignLast: "justify",
-                  ".title": {
-                    fontWeight: "bold",
-                  },
-                  ".content": {
-                    fontSize: "0.5rem",
-                  },
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  lineHeight: 1,
+                  border: "1px solid black",
+                  padding: "0.5rem 1rem",
                 }}
-              </ScopedStyle>
-              <p className="title">TYPESCRIPT EDITION</p>
-              <p className="content">
-                Weather: Rain, mild temperatures today, tonight. Showers
-                tomorrow. Temp. range: today 42-35. Thurs. 36-32. Full U.S.
-                report on Page 20.
-              </p>
+              >
+                <p>"All the News</p>
+                <p>That's Fit to Print"</p>
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <h1 style={{ fontFamily: "Textura Belgica", fontSize: "4rem" }}>
+                Probably Danny
+              </h1>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                alignItems: "center",
+              }}
+            >
+              <div>
+                <ScopedStyle>
+                  {{
+                    textAlign: "justify",
+                    maxWidth: "11rem",
+                    textAlignLast: "justify",
+                    ".title": {
+                      fontWeight: "bold",
+                    },
+                    ".content": {
+                      fontSize: "0.5rem",
+                    },
+                  }}
+                </ScopedStyle>
+                <p className="title">TYPESCRIPT EDITION</p>
+                <p className="content">
+                  Weather: Rain, mild temperatures today, tonight. Showers
+                  tomorrow. Temp. range: today 42-35. Thurs. 36-32. Full U.S.
+                  report on Page 20.
+                </p>
+              </div>
             </div>
           </div>
         </header>
-        <nav
-          style={{
-            borderTop: "1px solid black",
-            borderBottom: "1px solid black",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            fontStyle: "italic",
-          }}
-        >
-          <span>VOL. CXVII...No.40,186</span>
-          <span>TORONTO, FRIDAY, MAY 16, 2025</span>
-          <span>2 CENTS</span>
+        <nav>
+          <ScopedStyle>
+            {{
+              borderTop: "1px solid black",
+              borderBottom: "1px solid black",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              fontStyle: "italic",
+              fontSize: "1.25rem",
+              fontWeight: "bold",
+              "@media (width < 95rem)": {
+                paddingRight: "2rem",
+              },
+            }}
+          </ScopedStyle>
+          <span>Home</span>
+          <span>Blog</span>
+          <span>Contact</span>
         </nav>
-        <main
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(8, 1fr)",
-          }}
-        >
+        <main>
+          <ScopedStyle>
+            {{
+              display: "grid",
+              gridTemplateColumns: "repeat(8, 1fr)",
+              "@media (max-width: 95rem)": {
+                gridTemplateColumns: "repeat(4, 1fr)",
+              },
+              "@media (width < 50rem)": {
+                gridTemplateColumns: "repeat(1, 1fr)",
+              },
+            }}
+          </ScopedStyle>
           <Track span={4} border>
             <Slot span={4}>
               <Title>
@@ -270,7 +298,30 @@ export default function Home() {
             </Track>
           </Track>
         </main>
+        <Shadow />
       </div>
+    </div>
+  );
+}
+
+function Shadow() {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+      }}
+    >
+      <ScopedStyle>
+        {{
+          "@media (width < 95rem)": {
+            boxShadow: "inset -40px 0 40px -16px rgba(0,0,0,1)",
+          },
+        }}
+      </ScopedStyle>
     </div>
   );
 }
