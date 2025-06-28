@@ -24,7 +24,7 @@ export function ScopedStyle(props: Props) {
         <style id={id}>
           {
             HAS_SCOPE_SUPPORT
-              ? `@scope {${stylesheet}}` // Use @scope if supported.
+              ? `@scope {&{${stylesheet}}}` // Use @scope if supported.
               : `:has(> #${CSS.escape(id)}) {${stylesheet}}` // Fallback to more expensive parent selector.
           }
         </style>
