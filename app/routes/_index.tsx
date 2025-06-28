@@ -317,7 +317,9 @@ function Shadow() {
     >
       <ScopedStyle>
         {{
+          display: "none",
           "@media (width < 95rem)": {
+            display: "block",
             boxShadow: "inset -40px 0 40px -16px rgba(0,0,0,1)",
           },
         }}
