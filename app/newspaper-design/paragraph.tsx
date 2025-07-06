@@ -12,7 +12,7 @@ export function Paragraph(props: React.ComponentProps<"p">) {
           fontSize: v("--fs-md"),
         }}
       </ScopedStyle>
-      <span>{children}</span>
+      {children}
     </p>
   );
 }

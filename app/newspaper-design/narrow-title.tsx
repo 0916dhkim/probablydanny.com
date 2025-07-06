@@ -11,12 +11,11 @@ export function NarrowTitle(props: React.ComponentProps<"div">) {
           width: "100%",
           overflow: "visible",
           "& .original": {
-            fontSize: v("--fs-2xl"),
+            fontSize: v("--fs-xl"),
             fontStyle: "italic",
             textAlign: "justify",
-            transform: "scaleX(0.5)",
-            transformOrigin: "left",
-            width: "200%",
+            fontStretch: "extra-condensed",
+            fontWeight: "600",
           },
         }}
       </ScopedStyle>

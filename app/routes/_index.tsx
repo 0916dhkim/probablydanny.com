@@ -5,6 +5,7 @@ import { Slot } from "../newspaper-design/slot";
 import { Title } from "../newspaper-design/title";
 import { Track } from "../newspaper-design/track";
 import { ScopedStyle } from "../styles/scoped-style";
+import { v } from "../styles/theme";
 
 export const loader = async () => {
   const response = await fetch(
@@ -91,7 +92,12 @@ export default function Home() {
                 alignItems: "center",
               }}
             >
-              <h1 style={{ fontFamily: "Textura Belgica", fontSize: "4rem" }}>
+              <h1
+                style={{
+                  fontFamily: "Textura Belgica",
+                  fontSize: v("--fs-display"),
+                }}
+              >
                 Probably Danny
               </h1>
             </div>
@@ -106,7 +112,7 @@ export default function Home() {
                 <ScopedStyle>
                   {{
                     textAlign: "justify",
-                    maxWidth: "11rem",
+                    maxWidth: "12rem",
                     textAlignLast: "justify",
                     ".title": {
                       fontWeight: "bold",
@@ -135,7 +141,7 @@ export default function Home() {
               justifyContent: "space-between",
               alignItems: "center",
               fontStyle: "italic",
-              fontSize: "1.25rem",
+              fontSize: v("--fs-md"),
               fontWeight: "bold",
               "@media (width < 95rem)": {
                 paddingRight: "2rem",
@@ -156,6 +162,11 @@ export default function Home() {
               },
               "@media (width < 50rem)": {
                 gridTemplateColumns: "repeat(1, 1fr)",
+              },
+              "& p": {
+                fontSize: v("--fs-sm"),
+                fontFamily: "'Noto Serif', serif",
+                fontStretch: "extra-condensed",
               },
             }}
           </ScopedStyle>
@@ -318,6 +329,7 @@ function Shadow() {
       <ScopedStyle>
         {{
           display: "none",
+          pointerEvents: "none",
           "@media (width < 95rem)": {
             display: "block",
             boxShadow: "inset -40px 0 40px -16px rgba(0,0,0,1)",

@@ -4,6 +4,9 @@
 /* Libre Franklin */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Noto Serif */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap');
+
 @font-face {
   font-family: 'Textura Belgica';
   src: url('/TexturaBelgica.ttf') format('truetype');
