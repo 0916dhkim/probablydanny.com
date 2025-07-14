@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { css } from "../styles/css";
 import { SCREEN, v } from "../styles/theme";
 
@@ -133,22 +134,22 @@ export function Layout(props: Props) {
         </header>
         <nav
           className={css({
-            borderTop: "1px solid black",
-            borderBottom: "1px solid black",
+            borderBlock: "1px solid black",
+            paddingBlock: "0.25rem",
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             fontStyle: "italic",
             fontSize: v("--fs-md"),
             fontWeight: "bold",
-            [`@media (width < ${SCREEN.full})`]: {
-              paddingRight: "2rem",
+            [`@media (${SCREEN.half} <= width < ${SCREEN.full})`]: {
+              paddingInlineEnd: "2rem",
             },
           })}
         >
-          <span>Home</span>
-          <span>Blog</span>
-          <span>Contact</span>
+          <Link to="/">Home</Link>
+          <Link to="/archive">Archive</Link>
+          <Link to="/concept">Design Concept</Link>
         </nav>
         {props.children}
         <Shadow />

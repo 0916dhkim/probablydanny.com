@@ -1,6 +1,12 @@
+@layer layout, components;
+
 * {
   margin: 0;
   padding: 0;
 
   font-family: 'Noto Serif', serif;
+}
+
+a {
+  color: inherit;
 }
