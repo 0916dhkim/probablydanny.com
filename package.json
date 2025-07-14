@@ -3,12 +3,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "react-router dev"
+    "dev": "react-router dev",
+    "build": "react-router build",
+    "start": "react-router-serve build/server/index.js"
   },
   "dependencies": {
+    "@noble/hashes": "^1.8.0",
     "@react-router/fs-routes": "^7.6.0",
     "@react-router/node": "^7.6.0",
     "@react-router/serve": "^7.6.0",
+    "clsx": "^2.1.1",
     "isbot": "^5",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

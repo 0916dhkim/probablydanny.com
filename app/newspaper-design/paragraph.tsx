@@ -1,17 +1,21 @@
-import { ScopedStyle } from "../styles/scoped-style";
+import clsx from "clsx";
 import { v } from "../styles/theme";
+import { css } from "../styles/css";
 
 export function Paragraph(props: React.ComponentProps<"p">) {
-  const { children, ...rest } = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <p {...rest}>
-      <ScopedStyle>
-        {{
+    <p
+      className={clsx(
+        className,
+        css({
           textAlign: "justify",
           fontSize: v("--fs-md"),
-        }}
-      </ScopedStyle>
+        }),
+      )}
+      {...rest}
+    >
       {children}
     </p>
   );

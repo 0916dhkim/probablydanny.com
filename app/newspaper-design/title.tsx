@@ -1,18 +1,22 @@
-import { ScopedStyle } from "../styles/scoped-style";
+import clsx from "clsx";
 import { v } from "../styles/theme";
+import { css } from "../styles/css";
 
 export function Title(props: React.ComponentProps<"h2">) {
-  const { children, ...rest } = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <h2 {...rest}>
-      <ScopedStyle>
-        {{
+    <h2
+      className={clsx(
+        className,
+        css({
           fontSize: v("--fs-2xl"),
-          fontStyle: "italic",
-          textAlign: "justify",
-        }}
-      </ScopedStyle>
+          // fontStyle: "italic",
+          fontStretch: "extra-expanded",
+        }),
+      )}
+      {...rest}
+    >
       {children}
     </h2>
   );

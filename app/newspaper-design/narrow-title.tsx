@@ -1,24 +1,27 @@
-import { ScopedStyle } from "../styles/scoped-style";
+import clsx from "clsx";
 import { v } from "../styles/theme";
+import { css } from "../styles/css";
 
 export function NarrowTitle(props: React.ComponentProps<"div">) {
-  const { children, ...rest } = props;
+  const { children, className, ...rest } = props;
 
   return (
-    <div {...rest}>
-      <ScopedStyle>
-        {{
+    <div
+      className={clsx(
+        className,
+        css({
           width: "100%",
           overflow: "visible",
           "& .original": {
-            fontSize: v("--fs-xl"),
+            fontSize: v("--fs-2xl"),
             fontStyle: "italic",
-            textAlign: "justify",
             fontStretch: "extra-condensed",
-            fontWeight: "600",
+            fontWeight: "400",
           },
-        }}
-      </ScopedStyle>
+        }),
+      )}
+      {...rest}
+    >
       <h2 className="original">{children}</h2>
     </div>
   );

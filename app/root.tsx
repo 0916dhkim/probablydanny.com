@@ -1,9 +1,30 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  useLoaderData,
+} from "react-router";
 import "./styles/reset.css";
 import "./styles/fonts.css";
 import { Theme } from "./styles/theme";
+import { useEffect } from "react";
+import { styleSheetManager } from "./styles/css";
+
+export const loader = () => {
+  return {
+    serverStyles: styleSheetManager.toStyleElement(),
+  };
+};
 
 export function Layout(props: { children: React.ReactNode }) {
+  const { serverStyles } = useLoaderData();
+
+  useEffect(() => {
+    styleSheetManager.hydrate();
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -13,6 +34,7 @@ export function Layout(props: { children: React.ReactNode }) {
         <Meta />
         <Links />
         <Theme />
+        {serverStyles}
       </head>
       <body>
         {props.children}

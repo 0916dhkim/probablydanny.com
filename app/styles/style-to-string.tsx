@@ -10,7 +10,7 @@ export const styleToString = (style: StyleObject) => {
     .reduce((acc: string[], [key, value]) => {
       const normalizedKey = camelToKebab(key);
       let rule: string;
-      if (typeof value === "string") {
+      if (typeof value === "string" || typeof value === "number") {
         rule = `${normalizedKey}:${value};`;
       } else {
         rule = `${normalizedKey}{${styleToString(value)}}`;
