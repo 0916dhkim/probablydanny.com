@@ -33,9 +33,6 @@ export function Track(props: Props) {
           [`@media (width < ${SCREEN.half})`]: {
             gridColumn: "span 1",
             borderRight: "none",
-            // marginBottom: "2rem",
-            paddingBottom: "0.5rem",
-            borderBottom: "1px solid black",
           },
         }),
       )}

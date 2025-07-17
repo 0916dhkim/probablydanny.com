@@ -17,7 +17,7 @@ export const loader = async () => {
   return html;
 };
 
-export default function Home() {
+export default function Concept() {
   const data = useLoaderData();
 
   return (

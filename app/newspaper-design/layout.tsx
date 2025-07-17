@@ -145,11 +145,28 @@ export function Layout(props: Props) {
             [`@media (${SCREEN.half} <= width < ${SCREEN.full})`]: {
               paddingInlineEnd: "2rem",
             },
+            [`@media (width < ${SCREEN.half})`]: {
+              flexDirection: "column",
+              alignItems: "start",
+              gap: "0.5rem",
+            },
           })}
         >
           <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/works">Works</Link>
           <Link to="/archive">Archive</Link>
           <Link to="/concept">Design Concept</Link>
+          <span
+            className={css({
+              fontWeight: "normal",
+              [`@media (width < ${SCREEN.full})`]: {
+                display: "none",
+              },
+            })}
+          >
+            2 cents
+          </span>
         </nav>
         {props.children}
         <Shadow />

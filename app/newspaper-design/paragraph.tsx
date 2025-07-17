@@ -11,7 +11,7 @@ export function Paragraph(props: React.ComponentProps<"p">) {
         className,
         css({
           textAlign: "justify",
-          fontSize: v("--fs-md"),
+          fontSize: v("--fs-sm"),
         }),
       )}
       {...rest}

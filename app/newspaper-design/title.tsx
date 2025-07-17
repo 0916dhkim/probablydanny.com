@@ -11,7 +11,6 @@ export function Title(props: React.ComponentProps<"h2">) {
         className,
         css({
           fontSize: v("--fs-2xl"),
-          // fontStyle: "italic",
           fontStretch: "extra-expanded",
         }),
       )}
